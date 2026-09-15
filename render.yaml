@@ -1,0 +1,20 @@
+# Render Blueprint for NOVARA Store Demo.
+# This file only documents deployment settings — it does not deploy anything
+# by itself. Connect this repo on Render and it will read this config.
+#
+# No real API keys are set here. MOYASAR_* variables are declared with
+# sync: false, meaning Render will prompt you to enter their values in the
+# dashboard yourself — they are never stored in this file or in source control.
+
+services:
+  - type: web
+    name: novara-store-demo
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MOYASAR_PUBLISHABLE_KEY_TEST
+        sync: false
+      - key: MOYASAR_SECRET_KEY_TEST
+        sync: false

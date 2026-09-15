@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVARA Store Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo" data-nav="home">NOVARA</a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#" data-nav="home">Home</a>
+      <a href="#shop" data-nav="shop">Shop</a>
+      <a href="#" id="navCheckoutLink" data-nav="checkout">Checkout</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="wishlist-nav-btn" id="wishlistNavBtn" aria-label="Open wishlist">
+        <svg class="wishlist-nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="wishlist-nav-label">Wishlist</span>
+        <span class="cart-count" id="wishlistCount">0</span>
+      </button>
+      <button class="cart-btn" id="cartToggleBtn" aria-label="Open cart">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HOME / SHOP VIEW ===== -->
+<main id="shopView">
+
+  <section class="hero" style="background-image: url('/images/hero-banner.png');">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <h1>Premium Products for a Better You</h1>
+      <p>Style, technology, and everyday essentials — curated for modern living.</p>
+      <a href="#shop" class="btn btn-primary">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+
+      <div class="shop-toolbar">
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
+        </div>
+
+        <div class="toolbar-row">
+          <div class="category-pills" id="categoryPills">
+            <button type="button" class="pill active" data-category="All">All</button>
+            <button type="button" class="pill" data-category="Technology">Technology</button>
+            <button type="button" class="pill" data-category="Fashion">Fashion</button>
+            <button type="button" class="pill" data-category="Accessories">Accessories</button>
+            <button type="button" class="pill" data-category="Lifestyle">Lifestyle</button>
+          </div>
+
+          <select id="sortSelect" class="sort-select" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+          </select>
+        </div>
+
+        <div class="result-count" id="resultCount"></div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="no-products-msg hidden" id="noProductsMsg">No products found. Try a different search or category.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== CHECKOUT VIEW ===== -->
+<main id="checkoutView" class="hidden">
+  <section class="checkout-section">
+    <div class="container checkout-layout">
+
+      <div class="checkout-form-wrap">
+        <h2 class="section-title">Checkout</h2>
+        <form id="checkoutForm" novalidate>
+
+          <div class="form-group">
+            <label for="custName">Full Name</label>
+            <input type="text" id="custName" name="custName" placeholder="Jane Doe">
+            <span class="error-msg" id="err-custName"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="custEmail">Email Address</label>
+            <input type="email" id="custEmail" name="custEmail" placeholder="jane@example.com">
+            <span class="error-msg" id="err-custEmail"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="custPhone">Phone Number</label>
+            <input type="tel" id="custPhone" name="custPhone" placeholder="(555) 123-4567">
+            <span class="error-msg" id="err-custPhone"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="custAddress">Shipping Address</label>
+            <textarea id="custAddress" name="custAddress" rows="3" placeholder="123 Main St, City, State, ZIP"></textarea>
+            <span class="error-msg" id="err-custAddress"></span>
+          </div>
+
+          <div class="payment-section" id="paymentSection">
+            <h3 class="payment-section-title">Demo Payment</h3>
+            <p class="payment-security-note">🔒 Demo payment form for learning purposes only. No real card data is sent, stored, or processed — this does not connect to any payment gateway.</p>
+
+            <div class="form-group">
+              <label for="cardName">Name on Card</label>
+              <input type="text" id="cardName" name="cardName" placeholder="Jane Doe" autocomplete="off">
+              <span class="error-msg" id="err-cardName"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" name="cardNumber" placeholder="4242 4242 4242 4242" inputmode="numeric" maxlength="19" autocomplete="off">
+              <span class="error-msg" id="err-cardNumber"></span>
+            </div>
+
+            <div class="payment-row">
+              <div class="form-group">
+                <label for="cardExpiry">Expiry (MM/YY)</label>
+                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" inputmode="numeric" maxlength="5" autocomplete="off">
+                <span class="error-msg" id="err-cardExpiry"></span>
+              </div>
+              <div class="form-group">
+                <label for="cardCvc">CVC</label>
+                <input type="text" id="cardCvc" name="cardCvc" placeholder="123" inputmode="numeric" maxlength="4" autocomplete="off">
+                <span class="error-msg" id="err-cardCvc"></span>
+              </div>
+            </div>
+
+            <button type="button" class="demo-pay-btn" id="demoPaymentBtn">Demo Payment</button>
+
+            <div class="payment-success-banner hidden" id="paymentSuccessBanner">
+              ✅ Demo Payment Successful — no real payment was processed.
+            </div>
+          </div>
+
+          <p class="demo-note">This is a demo checkout. No real payment will be processed.</p>
+
+          <div class="checkout-actions">
+            <button type="button" class="btn btn-secondary" id="backToShopBtn">← Back to Shop</button>
+            <button type="submit" class="btn btn-primary" id="placeOrderBtn" disabled>Place Demo Order</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="order-summary" id="orderSummary">
+        <h3>Order Summary</h3>
+        <div id="orderSummaryItems"></div>
+        <div class="summary-row">
+          <span>Total Items</span>
+          <span id="summaryQty">0</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span id="summaryTotal">$0.00</span>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</main>
+
+<!-- ===== WISHLIST VIEW ===== -->
+<main id="wishlistView" class="hidden">
+  <section class="wishlist-section">
+    <div class="container">
+      <h2 class="section-title">Your Wishlist</h2>
+
+      <div class="product-grid" id="wishlistGrid"></div>
+
+      <div class="wishlist-empty hidden" id="wishlistEmpty">
+        <p>Your wishlist is empty</p>
+        <button type="button" class="btn btn-primary" id="wishlistContinueBtn">Continue Shopping</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== ORDER CONFIRMATION VIEW ===== -->
+<main id="confirmView" class="hidden">
+  <section class="confirm-section">
+    <div class="container confirm-inner">
+      <div class="confirm-icon">✅</div>
+      <h2>Thank You, <span id="confirmName"></span>!</h2>
+      <p>Your demo order has been placed. A confirmation would normally be sent to <strong id="confirmEmail"></strong>.</p>
+      <p class="demo-note">Remember: this is a learning demo — no real order was processed.</p>
+      <button class="btn btn-primary" id="continueShoppingBtn">Continue Shopping</button>
+    </div>
+  </section>
+</main>
+
+<!-- ===== PRODUCT DETAILS MODAL ===== -->
+<div class="modal-overlay" id="productModalOverlay"></div>
+<div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+  <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close product details">✕</button>
+  <div class="modal-body">
+    <div class="modal-image-wrap">
+      <img class="modal-image" id="modalImage" src="" alt="">
+      <button type="button" class="wishlist-heart-btn" id="modalHeartBtn" aria-pressed="false" aria-label="Add to Wishlist">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-info">
+      <div class="modal-category" id="modalCategory"></div>
+      <h2 class="modal-name" id="modalName"></h2>
+      <div class="modal-price" id="modalPrice"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <div class="modal-qty-row">
+        <span class="modal-qty-label">Quantity</span>
+        <div class="qty-controls">
+          <button type="button" class="qty-btn" id="modalQtyDecrease" aria-label="Decrease quantity">−</button>
+          <span class="qty-value" id="modalQtyValue">1</span>
+          <button type="button" class="qty-btn" id="modalQtyIncrease" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-block" id="modalAddToCartBtn">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button class="close-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-footer">
+    <div class="summary-row">
+      <span>Total Items</span>
+      <span id="cartTotalQty">0</span>
+    </div>
+    <div class="summary-row summary-total">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">$0.00</span>
+    </div>
+    <button class="btn btn-primary btn-block" id="goToCheckoutBtn">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 NOVARA Store Demo — Learning project only. No real transactions.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
