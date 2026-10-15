@@ -34,18 +34,18 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 // Premium 12-product catalog with real photography (see images/products/).
 // All products and prices are fictional — no real brands.
 const PRODUCTS = [
-  { id: 1, name: "Luxury Wireless Headphones", desc: "Over-ear headphones with active noise cancellation and a hand-stitched leather finish.", price: 249.99, image: "/images/products/headphones.png", category: "Technology" },
-  { id: 2, name: "Luxury Smartwatch", desc: "A refined smartwatch with a sapphire-finish display and genuine leather band.", price: 329.99, image: "/images/products/smartwatch.png", category: "Technology" },
-  { id: 3, name: "Premium Flagship Smartphone", desc: "Our flagship smartphone with a pro-grade camera system and all-day battery life.", price: 999.99, image: "/images/products/smartphone.png", category: "Technology" },
-  { id: 4, name: "Premium Leather Wallet", desc: "Slim bifold wallet crafted from full-grain leather with card slots and a cash pocket.", price: 89.99, image: "/images/products/wallet.png", category: "Accessories" },
-  { id: 5, name: "Luxury Sunglasses", desc: "Polarized square-frame sunglasses with a brushed gold-tone finish.", price: 159.99, image: "/images/products/sunglasses.png", category: "Fashion" },
-  { id: 6, name: "Premium Smart Speaker", desc: "Voice-activated smart speaker with rich, room-filling sound.", price: 199.99, image: "/images/products/smart-speaker.png", category: "Technology" },
-  { id: 7, name: "Luxury Minimalist Backpack", desc: "Water-resistant leather backpack designed for the modern commute.", price: 219.99, image: "/images/products/backpack.png", category: "Accessories" },
-  { id: 8, name: "Premium Insulated Water Bottle", desc: "Double-wall insulated bottle that keeps drinks cold for 24 hours.", price: 44.99, image: "/images/products/water-bottle.png", category: "Lifestyle" },
-  { id: 9, name: "Luxury Desk Lamp", desc: "Adjustable LED desk lamp with warm-to-cool lighting and a matte black finish.", price: 129.99, image: "/images/products/desk-lamp.png", category: "Lifestyle" },
-  { id: 10, name: "Premium Wireless Earbuds", desc: "True wireless earbuds with active noise cancellation and a compact charging case.", price: 179.99, image: "/images/products/earbuds.png", category: "Technology" },
-  { id: 11, name: "Luxury Travel Duffel Bag", desc: "Spacious leather duffel bag built for weekend getaways and business travel.", price: 259.99, image: "/images/products/duffel-bag.png", category: "Accessories" },
-  { id: 12, name: "NOVARA Signature Outfit Set", desc: "A complete tailored look: premium shirt, full-length trouser, and luxury leather shoes.", price: 349.99, image: "/images/products/outfit-set.png", category: "Fashion" }
+  { id: 1, name: "Luxury Wireless Headphones", desc: "Over-ear headphones with active noise cancellation and a hand-stitched leather finish.", price: 249.99, image: "/images/products/headphones.jpg", category: "Technology" },
+  { id: 2, name: "Luxury Smartwatch", desc: "A refined smartwatch with a sapphire-finish display and genuine leather band.", price: 329.99, image: "/images/products/smartwatch.jpg", category: "Technology" },
+  { id: 3, name: "Premium Flagship Smartphone", desc: "Our flagship smartphone with a pro-grade camera system and all-day battery life.", price: 999.99, image: "/images/products/smartphone.jpg", category: "Technology" },
+  { id: 4, name: "Premium Leather Wallet", desc: "Slim bifold wallet crafted from full-grain leather with card slots and a cash pocket.", price: 89.99, image: "/images/products/wallet.jpg", category: "Accessories" },
+  { id: 5, name: "Luxury Sunglasses", desc: "Polarized square-frame sunglasses with a brushed gold-tone finish.", price: 159.99, image: "/images/products/sunglasses.jpg", category: "Fashion" },
+  { id: 6, name: "Premium Smart Speaker", desc: "Voice-activated smart speaker with rich, room-filling sound.", price: 199.99, image: "/images/products/smart-speaker.jpg", category: "Technology" },
+  { id: 7, name: "Luxury Minimalist Backpack", desc: "Water-resistant leather backpack designed for the modern commute.", price: 219.99, image: "/images/products/backpack.jpg", category: "Accessories" },
+  { id: 8, name: "Premium Insulated Water Bottle", desc: "Double-wall insulated bottle that keeps drinks cold for 24 hours.", price: 44.99, image: "/images/products/water-bottle.jpg", category: "Lifestyle" },
+  { id: 9, name: "Luxury Desk Lamp", desc: "Adjustable LED desk lamp with warm-to-cool lighting and a matte black finish.", price: 129.99, image: "/images/products/desk-lamp.jpg", category: "Lifestyle" },
+  { id: 10, name: "Premium Wireless Earbuds", desc: "True wireless earbuds with active noise cancellation and a compact charging case.", price: 179.99, image: "/images/products/earbuds.jpg", category: "Technology" },
+  { id: 11, name: "Luxury Travel Duffel Bag", desc: "Spacious leather duffel bag built for weekend getaways and business travel.", price: 259.99, image: "/images/products/duffel-bag.jpg", category: "Accessories" },
+  { id: 12, name: "NOVARA Signature Outfit Set", desc: "A complete tailored look: premium shirt, full-length trouser, and luxury leather shoes.", price: 349.99, image: "/images/products/outfit-set.jpg", category: "Fashion" }
 ];
 
 // GET /api/hello — simplest possible endpoint, just returns JSON

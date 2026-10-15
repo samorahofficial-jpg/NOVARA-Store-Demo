@@ -1,2 +1,11 @@
 node_modules/
 .env
+
+# SQLite order database — contains customer/order data, never commit this.
+orders.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Original full-size PNGs kept locally as backup — not deployed.
+images-backup/

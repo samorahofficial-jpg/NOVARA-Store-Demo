@@ -180,7 +180,7 @@ function renderProducts() {
     const wishlisted = isWishlisted(product.id);
     card.innerHTML = `
       <div class="product-image-wrap">
-        <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy">
+        <img class="product-image" src="${product.image}" alt="${product.name}" width="800" height="800" loading="lazy">
         <button type="button" class="wishlist-heart-btn${wishlisted ? " active" : ""}" data-id="${product.id}" aria-pressed="${wishlisted ? "true" : "false"}" aria-label="${wishlisted ? "Remove from Wishlist" : "Add to Wishlist"}">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -220,7 +220,7 @@ function renderCart() {
       const row = document.createElement("div");
       row.className = "cart-item";
       row.innerHTML = `
-        <img class="cart-item-img" src="${product.image}" alt="${product.name}">
+        <img class="cart-item-img" src="${product.image}" alt="${product.name}" width="56" height="56" loading="lazy">
         <div class="cart-item-info">
           <div class="cart-item-name">${product.name}</div>
           <div class="cart-item-price">${formatPrice(product.price)}</div>
@@ -419,7 +419,7 @@ function renderWishlistView() {
     card.className = "product-card";
     card.innerHTML = `
       <div class="product-image-wrap">
-        <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy">
+        <img class="product-image" src="${product.image}" alt="${product.name}" width="800" height="800" loading="lazy">
       </div>
       <div class="product-info">
         <div class="product-name">${product.name}</div>
